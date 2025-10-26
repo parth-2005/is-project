@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple File Sender</title>
+    <script src="https://cdn.jsdelivr.net/npm/openpgp@5.10.1/dist/openpgp.min.js"></script>
+    <style>
+        body { font-family: sans-serif; margin: 2em; background: #f4f4f4; }
+        div { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        input { display: block; margin-bottom: 10px; width: 300px; padding: 8px; }
+        button { padding: 10px 15px; }
+        #status { color: green; font-weight: bold; }
+        #error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Secure File Sender</h1>
+    <div>
+        <h2>Send a File</h2>
+        <form id="send-form">
+            <label>Recipient's IP Address (e.g., 192.168.1.10):</label>
+            <input type="text" id="ip" required>
+            <label>Select file to encrypt and send:</label>
+            <input type="file" id="file" required>
+            <button type="submit">Send File</button>
+        </form>
+        <p id="status"></p>
+        <p id="error"></p>
+    </div>
+
+    <script src="/static/js/sender.js"></script>
+</body>
+</html>

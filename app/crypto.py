@@ -4,10 +4,11 @@ from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-PRIVATE_KEY_FILE = "my_private_key.pem"
-PUBLIC_KEY_FILE = "my_public_key.pem"
-
+# Define absolute paths for the key files
+PRIVATE_KEY_FILE = os.path.join(PROJECT_ROOT, "my_private_key.pem")
+PUBLIC_KEY_FILE = os.path.join(PROJECT_ROOT, "my_public_key.pem")
 def generate_keys():
     """Generates a new key pair if they don't exist."""
     if not os.path.exists(PRIVATE_KEY_FILE):

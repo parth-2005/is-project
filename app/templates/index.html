@@ -22,7 +22,10 @@
             <input type="text" id="ip" required>
             <label>Select file to encrypt and send:</label>
             <input type="file" id="file" required>
-            <button type="submit">Send File</button>
+            <div style="margin-top:10px">
+                <button type="button" id="send-encrypted">Send (encrypted)</button>
+                <button type="button" id="send-plain">Send (plain)</button>
+            </div>
         </form>
         <p id="status"></p>
         <p id="error"></p>

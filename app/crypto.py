@@ -106,6 +106,25 @@ def encrypt_and_send_file(recipient_ip, plaintext_file, original_filename):
     print("Upload successful.")
     return response.json()
 
+
+def send_plain_file(recipient_ip, plaintext_file, original_filename):
+    """
+    Sends a plaintext file to the recipient's /receive-plain endpoint.
+    """
+    upload_url = f"http://{recipient_ip}:5000/receive-plain"
+    files = {
+        'file': (original_filename, plaintext_file)
+    }
+    data = {
+        'filename': original_filename
+    }
+
+    print(f"Uploading plain file to {upload_url}...")
+    response = requests.post(upload_url, files=files, data=data)
+    response.raise_for_status()
+    print("Plain upload successful.")
+    return response.json()
+
 # --- DECRYPTION FUNCTION (Updated) ---
 
 def decrypt_file_data(encrypted_session_key, iv, ciphertext):
